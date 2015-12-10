@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context>
+
+    <Resources cacheMaxSize="102400" cacheObjectMaxSize="512" />
+
+    <!-- Default set of monitored resources -->
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+
+    <Environment name="DOCKER"     type="java.lang.Boolean" value="true" />
+    <Environment name="PRODUCTION" type="java.lang.Boolean" value="false" />
+    <Environment name="SECRET"     type="java.lang.String"  value="{{projectName}}" />
+
+    <Environment name="dari/debugUsername" type="java.lang.String" value="debug" />
+    <Environment name="dari/debugPassword" type="java.lang.String" value="debug" />
+
+    <!-- CMS Settings -->
+    <Environment name="cms/tool/isAutoCreateUser" type="java.lang.Boolean" value="true"  />
+
+    <!-- Storage Item Settings  -->
+    <Environment name="dari/defaultStorage"         type="java.lang.String" value="local" />
+
+    <Environment name="dari/storage/local/class"    type="java.lang.String" value="com.psddev.dari.util.LocalStorageItem" />
+    <Environment name="dari/storage/local/rootPath" type="java.lang.String" value="/servers/{{projectName}}/webapps/media" />
+    <Environment name="dari/storage/local/baseUrl"  type="java.lang.String" value="http://localhost:8080/media" />
+
+    <!-- Image Editor Settings -->
+    <Environment name="dari/defaultImageEditor"            type="java.lang.String"  value="dims" />
+
+    <Environment name="dari/imageEditor/dims/class"        type="java.lang.String"  value="com.psddev.dari.util.DimsImageEditor" />
+    <Environment name="dari/imageEditor/dims/baseUrl"      type="java.lang.String"  value="http://locahost/dims4/IC" />
+    <Environment name="dari/imageEditor/dims/sharedSecret" type="java.lang.String"  value="{{projectName}}" />
+    <Environment name="dari/imageEditor/dims/quality"      type="java.lang.Integer" value="90" />
+
+    <!-- Database Settings -->
+    <Environment name="dari/defaultDatabase"                                                type="java.lang.String"     value="{{projectName}}" />
+
+    <Environment name="dari/database/{{projectName}}/class"                               type="java.lang.String"     value="com.psddev.dari.db.AggregateDatabase" />
+    <Environment name="dari/database/{{projectName}}/defaultDelegate"                     type="java.lang.String"     value="sql" />
+    <Environment name="dari/database/{{projectName}}/delegate/sql/class"                  type="java.lang.String"     value="com.psddev.dari.db.SqlDatabase" />
+    <Environment name="dari/database/{{projectName}}/delegate/sql/enableReplicationCache" type="java.lang.Boolean"    value="true" />
+    <Resource    name="dari/database/{{projectName}}/delegate/sql/dataSource"             type="javax.sql.DataSource"
+                 auth="Container"
+                 driverClassName="com.mysql.jdbc.Driver"
+                 factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+                 jdbcInterceptors="ConnectionState;ResetAbandonedTimer"
+                 logAbandoned="false"
+                 maxActive="32"
+                 maxAge="10000"
+                 maxIdle="32"
+                 maxWait="30000"
+                 minIdle="32"
+                 numTestsPerEvictionRun="8"
+                 password="demo"
+                 removeAbandoned="true"
+                 removeAbandonedTimeout="60"
+                 testOnBorrow="false"
+                 testWhileIdle="true"
+                 timeBetweenEvictionRunsMillis="5000"
+                 url="jdbc:mysql://localhost:3306/{{projectName}}?useConfigs=maxPerformance&amp;enableQueryTimeouts=true&amp;clobberStreamingResults=true"
+                 username="root"
+                 validationQuery="/* ping */"
+    />
+    <Environment name="dari/database/{{projectName}}/delegate/solr/groups"                type="java.lang.String"     value="-* +cms.content.searchable" />
+    <Environment name="dari/database/{{projectName}}/delegate/solr/class"                 type="java.lang.String"     value="com.psddev.dari.db.SolrDatabase" />
+    <Environment name="dari/database/{{projectName}}/delegate/solr/serverUrl"             type="java.lang.String"     value="http://localhost:8180/solr" />
+
+</Context>
+

@@ -1,0 +1,3 @@
+Package: *
+Pin: origin repo.psdops.com
+Pin-Priority: 1100
