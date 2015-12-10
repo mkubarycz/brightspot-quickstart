@@ -33,7 +33,7 @@ Navigate to the `brightspot-quickstart` directory:
 cd brightspot-quickstart
 ```
 
-###Step 3
+####Step 3
 
 Run the build script:
 
@@ -43,15 +43,12 @@ sh build.sh
 
 You will be prompted to name your Maven Group and Artifact. Based on your Group ID, a default java package will be generated for you.
 
-###Step 4
+###Running your project with Docker
 
-open Docker QuickStart Terminal
-navigate to `brightspot-quickstart/build/context` directory
-run `docker build -t $projectName .`
-
-###Step 5
-
-run `docker run -d -P $projectName`
+* open Docker QuickStart Terminal
+* navigate to `brightspot-quickstart/build/context` directory
+* run `docker build -t $projectName .`
+* run `docker run -d -P $projectName`
 
 
 ###TODO:
