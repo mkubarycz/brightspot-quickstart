@@ -1,23 +1,52 @@
 #Brightspot Quickstart
 
-###Step 1
+This repository is meant to provide an easy way to start a new Brightspot project.
 
-Clone repository
+Here is a quick list of what this can do for you:
 
-###Step 2
+* Build a new project from the archetype
+* Generate a docker container for your project
+* Configure your tomcat and databases
+* Run your project in a docker machine
 
-[Install Docker Toolbox](https://www.docker.com/docker-toolbox) 
+##Prereqs
+
+1. Have [Java 8+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed
+2. Have [Maven 3.3+](https://maven.apache.org/download.cgi) installed
+3. Have [Docker Toolbox](https://www.docker.com/docker-toolbox) installed
+
+##Creating Your Brightspot Project
+
+####Step 1
+
+Clone this repository:
+
+```
+git clone https://github.com/rhino88/brightspot-quickstart.git
+```
+
+####Step 2
+
+Navigate to the `brightspot-quickstart` directory:
+
+```
+cd brightspot-quickstart
+```
 
 ###Step 3
 
-run `sh build.sh`
+Run the build script:
 
-And answer prompts for project naming
+```
+sh build.sh
+```
+
+You will be prompted to name your Maven Group and Artifact. Based on your Group ID, a default java package will be generated for you.
 
 ###Step 4
 
 open Docker QuickStart Terminal
-navigate to your `build/context` directory
+navigate to `brightspot-quickstart/build/context` directory
 run `docker build -t $projectName .`
 
 ###Step 5
@@ -27,7 +56,7 @@ run `docker run -d -P $projectName`
 
 ###TODO:
 
-- [ ] Automate docker toolbox installation 
-- [ ] Consolidate multiple steps
+- [ ] Provide scripts/Automate prereq installation
+- [ ] Consolidate steps
 - [ ] Use configuration files from archetype (located in `etc`)
 - [ ] Automatically mount the project directory
