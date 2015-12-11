@@ -58,6 +58,7 @@ build/
 * navigate to `brightspot-quickstart/build/context` directory
 * run `docker build -t $projectName .`
 * run `docker run -d -p 8080:8080 $projectName`
+* run `docker run -d -p 8080:8080 -v `pwd`/project/$projectName:/project/$projectName $projectName`
 * run `docker-machine env default` to get your IP address. The result should look something like this:
 
 ```
@@ -65,7 +66,6 @@ export DOCKER_TLS_VERIFY="1"
 export DOCKER_HOST="tcp://192.168.99.100:2376"
 export DOCKER_CERT_PATH="path/to/cert"
 export DOCKER_MACHINE_NAME="default"
-
 ```
 
 Use the DOCKER_HOST IP Address in your browser to view your virtual server running Brighspot!
@@ -79,3 +79,4 @@ http://192.168.99.100:8080/cms (the home page will be a 404, since we haven't se
 - [ ] Consolidate steps
 - [ ] Use configuration files from archetype (located in `etc`)
 - [ ] Automatically mount the project directory
+- [ ] Run maven archetype in Dockerfile instead of in build

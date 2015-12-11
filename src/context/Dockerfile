@@ -4,7 +4,6 @@ MAINTAINER Perfect Sense Digital
 
 ENV PROJECT_NAME {{projectName}}
 
-
 # install java 8
 RUN apt-get update && apt-get install -y \
     software-properties-common \
@@ -13,6 +12,8 @@ RUN apt-get update && apt-get install -y \
     && echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections \
     && apt-get install -y oracle-java8-installer oracle-java8-set-default
 
+# install maven
+RUN apt-get -y install maven
 
 
 # install mysql
@@ -86,16 +87,9 @@ RUN mkdir -p bin lib logs temp webapps \
     && ln -s /servers/tomcat/webapps/manager webapps/manager \
     && ln -s /servers/tomcat/webapps/host-manager webapps/host-manager
 
-
-
-# install code
-COPY distro/$PROJECT_NAME.war webapps/ROOT.war
-
-# load data
+# start mysql
 RUN /etc/init.d/mysql start \
     && mysql -u root -pdemo -D $PROJECT_NAME
-
-
 
 EXPOSE 8080
 
