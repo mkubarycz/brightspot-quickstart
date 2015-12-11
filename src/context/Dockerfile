@@ -97,7 +97,7 @@ RUN /etc/init.d/mysql start \
 
 
 
-EXPOSE 80 8080 8005 8180 8105
+EXPOSE 8080
 
 COPY configs/docker/entrypoint.sh /servers/
 
