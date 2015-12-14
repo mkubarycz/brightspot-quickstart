@@ -4,7 +4,7 @@ set -e
 BUILD=build
 DISTRO=$BUILD/distro
 CONTEXT=$BUILD/context
-PROJECT=$BUILD/project
+PROJECT=$CONTEXT/project
 TOMCAT_PROJECT=$CONTEXT/configs/tomcat_project
 TOMCAT_SOLR=$CONTEXT/configs/tomcat_solr
 
@@ -92,7 +92,7 @@ mvn generate-resources
 mvn clean package
 
 echo "Moving WAR file into Docker context..."
-cp target/*.war ../../../$CONTEXT/distro/$artifactName.war
+cp target/*.war ../../distro/$artifactName.war
 
 echo "DONE!"
 
