@@ -57,7 +57,6 @@ build/
 * open Docker QuickStart Terminal
 * navigate to `brightspot-quickstart/build/context` directory
 * run `docker build -t $projectName .`
-* run `docker run -d -p 8080:8080 $projectName`
 * run `docker run -d -p 8080:8080 -v `pwd`/project/$projectName:/project/$projectName $projectName`
 * run `docker-machine env default` to get your IP address. The result should look something like this:
 
