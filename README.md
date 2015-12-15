@@ -78,5 +78,4 @@ http://192.168.99.100:8080/cms (the home page will be a 404, since we haven't se
 - [ ] Provide scripts/Automate prereq installation
 - [ ] Consolidate steps
 - [ ] Use configuration files from archetype (located in `etc`)
-- [ ] Automatically mount the project directory
 - [ ] Run maven archetype in Dockerfile instead of in build
