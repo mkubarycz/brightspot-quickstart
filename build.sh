@@ -21,9 +21,9 @@ echo "Copying src context into Docker context..."
 cp -r src/context build/
 
 # change placeholders to your project name
-sed -i '.bak' "s/{{projectName}}/$artifactName/g" $CONTEXT/Dockerfile
-sed -i '.bak' "s/{{projectName}}/$artifactName/g" $CONTEXT/configs/tomcat_project/conf/context.xml
-sed -i '.bak' "s/{{projectName}}/$artifactName/g" $CONTEXT/configs/apache/conf-enabled/dims.conf
+sed -i.bak "s/{{projectName}}/$artifactName/g" $CONTEXT/Dockerfile
+sed -i.bak "s/{{projectName}}/$artifactName/g" $CONTEXT/configs/tomcat_project/conf/context.xml
+sed -i.bak "s/{{projectName}}/$artifactName/g" $CONTEXT/configs/apache/conf-enabled/dims.conf
 
 # download tomcat and place in the build context distro directory
 if [ -d $DISTRO/apache-tomcat-8.0.14 ]; then
@@ -83,7 +83,7 @@ mvn archetype:generate -B \
     -DarchetypeVersion=3.1-SNAPSHOT \
     -DgroupId=$groupId \
     -DartifactId=$artifactName
-    
+
 cd $artifactName
 
 mvn generate-resources
@@ -95,4 +95,3 @@ echo "Moving WAR file into Docker context..."
 cp target/*.war ../../distro/$artifactName.war
 
 echo "DONE!"
-
