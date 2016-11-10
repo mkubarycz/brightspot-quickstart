@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+mkdir build
+docker build -t bs-build .
+docker run -ti -v $(pwd)/build:/src/build bs-build

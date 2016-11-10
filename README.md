@@ -11,9 +11,7 @@ Here is a quick list of what this can do for you:
 
 ##Prereqs
 
-1. Have [Java 8+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed
-2. Have [Maven 3.3+](https://maven.apache.org/download.cgi) installed
-3. Have [Docker Toolbox](https://www.docker.com/docker-toolbox) installed
+1. Install docker https://docs.docker.com/engine/installation/
 
 ##Creating Your Brightspot Project
 
@@ -38,7 +36,7 @@ cd brightspot-quickstart
 Run the build script:
 
 ```
-sh build.sh
+sh build-docker.sh
 ```
 
 You will be prompted to name your Maven Group and Artifact. Based on your Group ID, a default java package will be generated for you.
@@ -77,7 +75,7 @@ http://192.168.99.100:8080/cms (the home page will be a 404, since we haven't se
 
 ###TODO:
 
-- [ ] Provide scripts/Automate prereq installation
+- [x] Provide scripts/Automate prereq installation
 - [ ] Consolidate steps
 - [ ] Use configuration files from archetype (located in `etc`)
-- [ ] Run maven archetype in Dockerfile instead of in build
+- [x] Run maven archetype in Dockerfile instead of in build

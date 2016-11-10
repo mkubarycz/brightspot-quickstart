@@ -5,4 +5,4 @@ COPY ./quickstart /src
 
 WORKDIR /src
 
-ENTRYPOINT ["sh", "-x", "./build.sh"]
+ENTRYPOINT ["sh", "./build.sh"]
